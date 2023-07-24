@@ -1,12 +1,17 @@
 import requests
 import argparse
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 parser = argparse.ArgumentParser()
 parser.add_argument('prompt', help='Prompt for OpenAI to generate python code.')
 parser.add_argument('file_name', help='File name to save the generated code.')
 args = parser.parse_args()
 
-api_key = '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'
+OPENAI_API = os.getenv('OPENAI_API')
+api_key = OPENAI_API
 api_host = 'https://api.openai.com/v1/'
 api_endpoint = 'completions'
 
